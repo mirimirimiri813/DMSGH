@@ -61,8 +61,8 @@ export function BuddyOn() {
   };
 
   const windowClasses = glitchLevel >= 2 
-    ? "w-[320px] h-[480px] bg-red-950 rounded shadow-2xl border-2 border-red-600 overflow-hidden font-dotum relative flex flex-col transition-colors duration-500"
-    : "w-[320px] h-[460px] bg-[#f0f5fa] rounded shadow-2xl border border-[#5ca1e6] overflow-hidden font-dotum flex flex-col transition-colors duration-500";
+    ? "w-full sm:w-[320px] max-w-[320px] h-[480px] bg-red-950 rounded shadow-2xl border-2 border-red-600 overflow-hidden font-dotum relative flex flex-col transition-colors duration-500"
+    : "w-full sm:w-[320px] max-w-[320px] h-[460px] bg-[#f0f5fa] rounded shadow-2xl border border-[#5ca1e6] overflow-hidden font-dotum flex flex-col transition-colors duration-500";
 
   return (
     <div className={windowClasses} style={{ boxShadow: glitchLevel < 2 ? 'inset 0 0 0 1px #fff, 0 10px 25px -5px rgba(0, 0, 0, 0.3)' : undefined }}>

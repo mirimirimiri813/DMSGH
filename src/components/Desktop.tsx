@@ -52,7 +52,7 @@ export function Desktop() {
           <motion.div
             initial={{ opacity: 0, scale: 0.8, y: 50 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            className="absolute bottom-12 right-12 md:bottom-20 md:right-20 pointer-events-auto z-50"
+            className="absolute bottom-12 right-2 left-2 sm:left-auto sm:right-12 md:bottom-20 md:right-20 pointer-events-auto z-50 flex items-end justify-end"
           >
             <BuddyOn />
           </motion.div>
@@ -61,10 +61,10 @@ export function Desktop() {
 
       {/* Taskbar */}
       <div className="absolute bottom-0 left-0 right-0 h-10 bg-gradient-to-r from-blue-700 via-blue-600 to-blue-800 flex items-center justify-between px-2 retro-border-inset border-blue-400 border-t-2 z-50">
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 max-w-[70%] sm:max-w-none overflow-hidden">
           
-          <div className="flex gap-1">
-            <div className="bg-blue-800/50 px-2 sm:px-3 py-1 border border-blue-900/50 rounded flex items-center gap-2 max-w-[120px] sm:max-w-[150px] shadow-inner text-xs">
+          <div className="flex gap-1 overflow-hidden">
+            <div className="bg-blue-800/50 px-2 sm:px-3 py-1 border border-blue-900/50 rounded flex items-center gap-2 max-w-[100px] sm:max-w-[150px] shadow-inner text-xs shrink-0">
               <div className="w-4 h-4 bg-blue-500 flex items-center justify-center text-[10px] font-serif border border-white/20 shrink-0">e</div>
               <span className="truncate hidden sm:inline">은호의 작은 방</span>
             </div>
@@ -72,18 +72,19 @@ export function Desktop() {
             {!showBuddyOn && (
               <button 
                 onClick={() => setShowBuddyOn(true)}
-                className="hover:bg-blue-700/50 px-2 sm:px-3 py-1 border border-transparent hover:border-blue-500/50 rounded flex items-center gap-2 max-w-[150px] cursor-pointer text-xs transition-colors shrink-0"
+                className="hover:bg-blue-700/50 px-2 sm:px-3 py-1 border border-transparent hover:border-blue-500/50 rounded flex items-center gap-2 max-w-[100px] sm:max-w-[150px] cursor-pointer text-xs transition-colors shrink-0"
                 title="버디온 메신저 켜기"
               >
                 <div className="w-4 h-4 bg-gradient-to-b from-[#7FB1F0] to-[#4286DC] rounded flex items-center justify-center border border-white/20 shrink-0">
                   <span className="text-[9px] text-white font-bold italic">N</span>
                 </div>
-                <span className="truncate text-gray-200">버디온 열기</span>
+                <span className="truncate text-white font-bold drop-shadow-md hidden sm:inline">버디온 열기</span>
+                <span className="truncate text-white font-bold drop-shadow-md sm:hidden animate-pulse">버디온</span>
               </button>
             )}
 
             {showBuddyOn && (
-              <div className="bg-blue-800/50 px-2 sm:px-3 py-1 border border-blue-900/50 rounded flex items-center gap-2 max-w-[120px] sm:max-w-[150px] shadow-inner text-xs shrink-0">
+              <div className="bg-blue-800/50 px-2 sm:px-3 py-1 border border-blue-900/50 rounded flex items-center gap-2 max-w-[100px] sm:max-w-[150px] shadow-inner text-xs shrink-0">
                 <div className="w-4 h-4 bg-gradient-to-b from-[#7FB1F0] to-[#4286DC] rounded flex items-center justify-center border border-white/20 shrink-0">
                   <span className="text-[9px] text-white font-bold italic">N</span>
                 </div>

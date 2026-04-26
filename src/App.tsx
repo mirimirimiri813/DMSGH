@@ -3,7 +3,7 @@ import { Desktop } from './components/Desktop';
 
 export default function App() {
   return (
-    <div className="w-full h-screen bg-black overflow-hidden font-dotum">
+    <div className="w-full h-[100dvh] bg-black overflow-hidden font-dotum">
       <Desktop />
     </div>
   );
