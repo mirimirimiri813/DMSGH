@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    @apply antialiased text-gray-900;
+    margin: 0;
+    overflow: hidden;
+  }
+}
+
+@layer utilities {
+  .font-dotum {
+    font-family: 'Dotum', '돋움', 'Gulim', '굴림', sans-serif;
+  }
+  
+  .font-gulim {
+    font-family: 'Gulim', '굴림', sans-serif;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .retro-border {
+    border: 2px solid;
+    border-color: #dfdfdf #404040 #404040 #dfdfdf;
+  }
+  
+  .retro-border-inset {
+    border: 2px solid;
+    border-color: #404040 #dfdfdf #dfdfdf #404040;
+  }
+
+  .glitch-layer {
+    clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+    transform: translate(-2px, 2px);
+    opacity: 0.8;
+  }
+}
+
+@theme {
+  --font-dotum: 'Dotum', '돋움', 'Gulim', '굴림', sans-serif;
+  --font-gulim: 'Gulim', '굴림', sans-serif;
+  --animate-shake: shake 0.5s cubic-bezier(.36,.07,.19,.97) infinite;
+  
+  @keyframes shake {
+    10%, 90% { transform: translate3d(-1px, 0, 0); }
+    20%, 80% { transform: translate3d(2px, 0, 0); }
+    30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+    40%, 60% { transform: translate3d(4px, 0, 0); }
+  }
+}
+
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+@keyframes noise {
+  0%, 100% { transform: translate(0, 0); }
+  10% { transform: translate(-5%, -5%); }
+  20% { transform: translate(-10%, 5%); }
+  30% { transform: translate(5%, -10%); }
+  40% { transform: translate(-5%, 15%); }
+  50% { transform: translate(-10%, 5%); }
+  60% { transform: translate(15%, 0); }
+  70% { transform: translate(0, 15%); }
+  80% { transform: translate(3%, 35%); }
+  90% { transform: translate(-10%, 10%); }
+}
+
+.crt::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  z-index: 2;
+  background-size: 100% 2px, 3px 100%;
+  pointer-events: none;
+}
+
+.crt-flicker {
+  animation: crt-flicker 0.15s infinite;
+}
+
+@keyframes crt-flicker {
+  0% { opacity: 0.95; }
+  10% { opacity: 0.85; }
+  20% { opacity: 0.95; }
+  30% { opacity: 1; }
+  40% { opacity: 0.9; }
+  50% { opacity: 1; }
+  60% { opacity: 0.95; }
+  70% { opacity: 0.85; }
+  80% { opacity: 1; }
+  90% { opacity: 0.9; }
+  100% { opacity: 0.95; }
+}
